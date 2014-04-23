@@ -1,0 +1,32 @@
+#console
+{
+	font-size: 22px;
+	margin-left: 20px;
+	float:left;
+  	height: 300px;
+  	width:800px; 
+  	padding:3px; 
+}
+#sub-button
+{
+	display: none;
+}
+#area
+{
+	font-size: 22px;
+	width: 800px;
+	height: 300px;
+	border: 2 solid black;
+	overflow: auto;
+
+}
+#tb
+{
+	border: none;
+	font-size: 19px;
+	padding: 0px;
+	outline: 0 none;
+}
+textarea:focus, input:focus{
+    outline: 0 none;
+}

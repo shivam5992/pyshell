@@ -1,0 +1,10 @@
+upper and lower key press
+
+wrong command > infinite loop
+FOR LOOP PEXCEPT
+
+Workspace !!
+Run python scripts files
+help !!
+
+Console like Background UI

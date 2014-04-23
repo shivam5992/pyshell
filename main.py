@@ -1,0 +1,42 @@
+from flask import Flask, render_template, flash, request
+import pexpect
+
+app = Flask(__name__)
+app.secret_key = 'guess'
+
+def reset():
+	f = open("templates/previous.html",'w')
+	f.write("")
+	f.close
+
+@app.route('/', methods = ['GET','POST'])
+@app.route('/index', methods = ['GET','POST'])
+def index():
+	if request.method == 'POST':
+		cmd = request.form['command']
+		if cmd == "clear" or cmd == "cls":
+			reset()
+		# elif cmd == "help" or cmd == "help()":
+		# 	child.sendline("help()")
+		# 	child.expect('\n')
+		# 	flash(child.before)
+		else:
+			child.sendline(cmd)
+			child.expect('\n>>>')
+			output = child.before
+			ftemp = open('templates/previous.html', 'a')
+			if output.strip() == cmd.strip():
+				text = """&nbsp;&nbsp;>>>&nbsp;&nbsp;""" + cmd + """<br>"""
+			else:
+				text = """&nbsp;&nbsp;>>>&nbsp;&nbsp;""" + cmd.strip() + """<br>
+				&nbsp;&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
+			ftemp.write(text)
+			ftemp.close
+			ftemp.flush()
+	return render_template('index.html', home=True)
+
+if __name__ == '__main__':
+	child = pexpect.spawn("python")
+	child.expect('\n>>>')
+	reset()
+	app.run(debug = True)
