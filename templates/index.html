@@ -1,19 +1,51 @@
-<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PyConsole | Shivam Bansal</title>
+  <link rel="stylesheet" href="static/css/style.css" type="text/css">
+  <link rel="stylesheet" type="text/css" href="static/packaged/css/semantic.css">
+  <link rel="stylesheet" type="text/css" href="static/css/homepage.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script src="static/packaged/javascript/semantic.js"></script>
+  <script src="static/js/homepage.js"></script>
 
-<div id="console">
-	<form action="" name="f" method="POST" autocomplete="off">
-		<div id="area">
-			{% include "previous.html" %}
-			{% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <font color="green">{{ message }}</font>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-			&nbsp;&nbsp;>>>&nbsp;
-			<input autofocus type="text" size="70" name="command" id="tb" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-		</div>
-		<input type="Submit" value="Submit" id="sub-button">
-	</form>
+</head>
+<body id="home">
+  
+  <div class="ui page grid segment" id="topbar">
+    <div class="column">
+        <div>PyConsole</div>
+    </div>
+  </div>
+  
+  <div class="ui page grid segment">
+    <p id="text">Ready to Use "Python Console" in your Browser !!!</p>
+    <div id="console">
+      <form action="" name="f" method="POST" autocomplete="off">
+        <div id="area">
+          Welcome to online python cloud console !!<br>
+          {% include "previous.html" %}
+          {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <font color="red">{{ message }}</font>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+          >>>
+          <input autofocus type="text" size="70" name="command" id="tb" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </div>
+        <input type="Submit" value="Submit" id="sub-button">
+      </form>
+    </div>
+  </div>
+
+<div class="ui page grid masthead segment" id="bottbar">
+  <div class="column">
+    <div class="item" id="text">Developed with love by <a href="http://www.shivambansal.com" target="_blank">Shivam Bansal</a>
+    </div>
+  </div>
 </div>
+
+</body>
+</html>

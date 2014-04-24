@@ -26,10 +26,10 @@ def index():
 			output = child.before
 			ftemp = open('templates/previous.html', 'a')
 			if output.strip() == cmd.strip():
-				text = """&nbsp;&nbsp;>>>&nbsp;&nbsp;""" + cmd + """<br>"""
+				text = """>>>&nbsp;""" + cmd + """<br>"""
 			else:
-				text = """&nbsp;&nbsp;>>>&nbsp;&nbsp;""" + cmd.strip() + """<br>
-				&nbsp;&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
+				text = """>>>&nbsp;""" + cmd.strip() + """<br>
+				&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
 			ftemp.write(text)
 			ftemp.close
 			ftemp.flush()

@@ -1,11 +1,21 @@
+#topbar
+{
+	margin-top: -20px;
+	height: 1%;
+}
+#botbar
+{
+	background-color: #525B6B;
+	bottom:0px;
+}
 #console
 {
-	font-size: 22px;
-	margin-left: 20px;
+	margin-left:3%;
 	float:left;
-  	height: 300px;
-  	width:800px; 
-  	padding:3px; 
+  	height: 430px;
+  	width:90%; 
+  	padding:2px; 
+  	background-color: #002b36;
 }
 #sub-button
 {
@@ -13,20 +23,33 @@
 }
 #area
 {
-	font-size: 22px;
-	width: 800px;
-	height: 300px;
-	border: 2 solid black;
+	font-size: 18px;
+	width: 100%;
+	height: 430px;
 	overflow: auto;
+	margin-left: 5px;
+	color: #839496;
+	font-family: "monaco";
+	padding: 2px;
+
 
 }
 #tb
 {
 	border: none;
 	font-size: 19px;
-	padding: 0px;
 	outline: 0 none;
+	background-color: #002b36;
+	color: #839496;
+	font-family: "monaco";
+
 }
 textarea:focus, input:focus{
     outline: 0 none;
+}
+#text 
+{
+font-size: 140%;
+font-family: "Calibri"
+color: white;
 }
