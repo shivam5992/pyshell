@@ -2,10 +2,16 @@
 {
 	margin-top: -20px;
 	height: 1%;
+	color: #27A8A8;
+}
+
+#topxar
+{
+	margin-top: -20px;
 }
 #botbar
 {
-	background-color: #525B6B;
+	background-color: #1A4040;
 	bottom:0px;
 }
 #console

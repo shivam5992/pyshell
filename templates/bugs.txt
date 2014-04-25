@@ -1,12 +1,8 @@
 Bugs:
-	wrong command > infinite loop
-	FOR LOOP PEXCEPT
+	wrong command > infinite loop > handle
 
 Features: 
 	upper and lower key press
 	Workspace !!
 	Run python scripts files
 	help !!
-
-UI:
-	Console like Background UI

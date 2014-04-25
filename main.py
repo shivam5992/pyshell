@@ -16,7 +16,7 @@ def index():
 	if request.method == 'POST':
 		cmd = request.form['command']
 		ftemp = open('templates/previous.html', 'a')
-
+		text = ""
 		if cmd == "clear" or cmd == "cls":
 			reset()
 		elif cmd.endswith(":"):
@@ -30,13 +30,14 @@ def index():
 			 	text = """>>>&nbsp;""" + cmd.strip() + """<br>
 			 	&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
 			home = True
+		
 		elif cmd.startswith("    "):
 			child.sendline(cmd)
 			child.expect ('\n...')
 			output = child.before
 
 			if output.strip() == cmd.strip():
-			 	text = """>>>&nbsp;""" + cmd + """<br>"""
+			 	text = """...&nbsp;&nbsp;&nbsp;""" + cmd + """<br>"""
 			else:
 			 	text = """>>>&nbsp;""" + cmd.strip() + """<br>
 			 	&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
