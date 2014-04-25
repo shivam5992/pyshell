@@ -1,10 +1,12 @@
-upper and lower key press
+Bugs:
+	wrong command > infinite loop
+	FOR LOOP PEXCEPT
 
-wrong command > infinite loop
-FOR LOOP PEXCEPT
+Features: 
+	upper and lower key press
+	Workspace !!
+	Run python scripts files
+	help !!
 
-Workspace !!
-Run python scripts files
-help !!
-
-Console like Background UI
+UI:
+	Console like Background UI

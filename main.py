@@ -12,28 +12,51 @@ def reset():
 @app.route('/', methods = ['GET','POST'])
 @app.route('/index', methods = ['GET','POST'])
 def index():
+	home = False
 	if request.method == 'POST':
 		cmd = request.form['command']
+		ftemp = open('templates/previous.html', 'a')
+
 		if cmd == "clear" or cmd == "cls":
 			reset()
-		# elif cmd == "help" or cmd == "help()":
-		# 	child.sendline("help()")
-		# 	child.expect('\n')
-		# 	flash(child.before)
+		elif cmd.endswith(":"):
+			child.sendline(cmd)
+			child.expect ('\n...')
+			output = child.before
+
+			if output.strip() == cmd.strip():
+			 	text = """>>>&nbsp;""" + cmd + """<br>"""
+			else:
+			 	text = """>>>&nbsp;""" + cmd.strip() + """<br>
+			 	&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
+			home = True
+		elif cmd.startswith("    "):
+			child.sendline(cmd)
+			child.expect ('\n...')
+			output = child.before
+
+			if output.strip() == cmd.strip():
+			 	text = """>>>&nbsp;""" + cmd + """<br>"""
+			else:
+			 	text = """>>>&nbsp;""" + cmd.strip() + """<br>
+			 	&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
+			home = True
 		else:
 			child.sendline(cmd)
-			child.expect('\n>>>')
+			child.expect ('\n>>>')
 			output = child.before
-			ftemp = open('templates/previous.html', 'a')
 			if output.strip() == cmd.strip():
 				text = """>>>&nbsp;""" + cmd + """<br>"""
 			else:
 				text = """>>>&nbsp;""" + cmd.strip() + """<br>
 				&nbsp;<font color="RED">""" + output.replace(cmd,"").strip() + """</font><br>"""
-			ftemp.write(text)
-			ftemp.close
-			ftemp.flush()
-	return render_template('index.html', home=True)
+			
+		ftemp.write(text)
+		ftemp.close
+		ftemp.flush()
+		return render_template('index.html', home = home)
+	return render_template('index.html', home = home)
+
 
 if __name__ == '__main__':
 	child = pexpect.spawn("python")
