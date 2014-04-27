@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PyConsole | Shivam Bansal</title>
+  <title>Pyshell | Shivam Bansal</title>
   <link rel="stylesheet" href="static/css/style.css" type="text/css">
   <link rel="stylesheet" type="text/css" href="static/packaged/css/semantic.css">
   <link rel="stylesheet" type="text/css" href="static/css/homepage.css">
@@ -14,7 +14,7 @@
   
   <div class="ui page inverted grid segment" id="topbar">
     <div class="column">
-        <div id="topxar"><h2>PyConsole</h2></div>
+        <div id="topxar"><h2>Pyshell</h2></div>
     </div>
   </div>
   
@@ -39,6 +39,7 @@
           >>>
           {% endif %}
           <input autofocus type="text" size="70" name="command" id="tb" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+
         </div>
         <input type="Submit" value="Submit" id="sub-button">
       </form>
@@ -47,10 +48,32 @@
 
 <div class="ui page inverted grid masthead segment" id="bottbar">
   <div class="column">
-    <div class="item" id="text">Developed with love by <a href="http://www.shivambansal.com" target="_blank">Shivam Bansal</a>
+    <div class="item" id="text">Developed with love by <a href="http:\\www.shivambansal.com">Shivam Bansal</a>
     </div>
   </div>
 </div>
 
 </body>
+
+  <script type="text/javascript">
+      var myInput = document.getElementById("tb");
+      if(myInput.addEventListener ) {
+          myInput.addEventListener('keydown',this.keyHandler,false);
+      } else if(myInput.attachEvent ) {
+          myInput.attachEvent('onkeydown',this.keyHandler); /* damn IE hack */
+      }
+
+      function keyHandler(e) {
+          var TABKEY = 9;
+          if(e.keyCode == TABKEY) {
+              this.value += "    ";
+              if(e.preventDefault) {
+                  e.preventDefault();
+              }
+              return false;
+          }
+      }
+  </script>
+
+
 </html>

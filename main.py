@@ -19,6 +19,8 @@ def index():
 		text = ""
 		if cmd == "clear" or cmd == "cls":
 			reset()
+		elif cmd == "help" or cmd == "help()":
+			reset()
 		elif cmd.endswith(":"):
 			child.sendline(cmd)
 			child.expect ('\n...')
