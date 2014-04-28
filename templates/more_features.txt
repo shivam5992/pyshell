@@ -1,0 +1,7 @@
+Bugs:
+	help: wrong command > infinite loop > handle
+
+Features: 
+	upper and lower key press
+	Workspace !!
+	Run python scripts files
